@@ -27,14 +27,14 @@
   },
   "name": "fa-header",
   "description": "This component provides standard header layout and functionality.",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "main": "dist/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FutureActivities/vuejs-fa-header.git"
+    "url": "git+https://github.com/FutureActivities/Vuejs-Fa-Header.git"
   },
   "author": "Future Activities",
   "license": "ISC",

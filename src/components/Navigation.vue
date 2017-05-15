@@ -5,7 +5,6 @@
       <div class="nav__background" v-on:click="navToggle"></div>
       <div class="nav__container">
         <div class="nav__close" v-on:click="navToggle"></div>
-        {{ desktopscroll }}
         <slot></slot>
       </div>
     </div>
