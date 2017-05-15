@@ -1,0 +1,45 @@
+{
+  "dependencies": {
+    "babel-core": "^6.23.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-runtime": "^6.23.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.1.0",
+    "browserify-shim": "^3.8.13",
+    "envify": "^4.0.0",
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^2.0.1",
+    "node-sass": "^4.5.0",
+    "v-media-query": "^1.0.3",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "vue-awesome": "^2.1.0",
+    "vueify": "^9.4.0"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "vue": "global:VUE"
+  },
+  "name": "fa-header",
+  "description": "This component provides standard header layout and functionality.",
+  "version": "1.0.0",
+  "main": "dist/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FutureActivities/vuejs-fa-header.git"
+  },
+  "author": "Future Activities",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FutureActivities/vuejs-fa-header/issues"
+  },
+  "homepage": "https://github.com/FutureActivities/vuejs-fa-header#readme"
+}
