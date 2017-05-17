@@ -6,9 +6,6 @@
 </template>
 
 <script>
-    import VueResource from 'vue-resource'
-    Vue.use(VueResource);
-
     import Horizontal from './MegaMenu/Horizontal.vue';
     import Burger from './MegaMenu/Burger.vue';
 
