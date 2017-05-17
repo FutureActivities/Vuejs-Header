@@ -3,7 +3,34 @@
 This component provides typical header layout and functionality for responsive websites.
 The following components were designed to work inside the Header component but can work independently.
 
-## Header
+## Getting Started
+
+CDN:
+
+    https://unpkg.com/fa-header
+
+NPM:
+
+    import FaHeader from 'fa-header'
+    Vue.use(FaHeader)
+    
+To use specific components:
+
+    import FaHeader from 'fa-header/src/components/Header.vue'
+    import FaNavigation from 'fa-header/src/components/Navigation.vue'
+    import FaSearch from 'fa-header/src/components/Search.vue'
+    
+    new Vue({
+        el: '#header',
+        components: {
+            FaHeader,
+            FaNavigation,
+            FaSearch
+        }
+    });
+
+## Components
+### Header
 
 This provides a wrapper for everything in the header that will become sticky at the specified point.
 
