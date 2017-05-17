@@ -5,7 +5,7 @@ The following components were designed to work inside the Header component but c
 
 ## Demo
 
-https://jsfiddle.net/du7pzdgs/1/
+https://jsfiddle.net/du7pzdgs/2/
 
 ## Getting Started
 
