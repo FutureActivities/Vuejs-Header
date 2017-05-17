@@ -6,8 +6,8 @@
 </template>
 
 <script>
-    import Horizontal from './MegaMenu/Horizontal.vue';
-    import Burger from './MegaMenu/Burger.vue';
+    import Horizontal from './menu/Horizontal.vue';
+    import Burger from './menu/Burger.vue';
 
     export default {
         name: 'fa-megamenu',

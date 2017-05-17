@@ -91,7 +91,6 @@ export default {
                       
             .nav__megamenu__dropdown {
                 display: flex;
-                align-items: center;
             }
         }
     }

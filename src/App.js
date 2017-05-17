@@ -3,7 +3,7 @@ import VueResource from 'vue-resource';
 import Header from './components/Header.vue';
 import Navigation from './components/Navigation.vue';
 import Search from './components/Search.vue';
-import MegaMenu from './components/MegaMenu.vue';
+import MegaMenu from './components/Megamenu.vue';
 
 function plugin (Vue) {
     Vue.use(VueResource);
