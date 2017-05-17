@@ -1,0 +1,48 @@
+{
+   "category": {
+      "name":"Category",
+      "source": {
+          "1": [
+            {
+              "id": 3,
+              "name": "Child Link",
+              "url": "#"
+            },
+            {
+              "id": 4,
+              "name": "Another Child Link",
+              "url": "#"
+            }
+          ],
+          "4": [
+            {
+              "id": 5,
+              "name": "Next level child",
+              "url": "#"
+            }
+          ]
+      },
+      "links":[
+         [
+            {
+              "id":1,
+              "name":"Parent",
+              "url":"#"
+            },
+            {
+              "id":2,
+              "name":"Other",
+              "url":"#"
+            }
+         ]
+      ]
+   },
+   "topsellers":{
+      "name":"Top Sellers",
+      "url":"#"
+   },
+   "promotions":{
+      "name":"Promotions",
+      "url":"#"
+   }
+}

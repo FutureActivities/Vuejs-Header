@@ -21,8 +21,11 @@
                 background: white;
             }
             .content {
-                height: 3000px;
+                height: 400px;
                 border: 2px solid;
+            }
+            .content--bottom {
+                height: 3000px;
             }
         </style>
     </head>
@@ -31,7 +34,7 @@
             <div class="content">
                 Lorem Ipsum
             </div>
-            <fa-header :width="1200" :breakpoint="800" :sticky="-50">
+            <fa-header :breakpoint="800" :sticky="-50">
                 <div class="logo">LOGO</div>
                 <div class="logo">MIDDLE-CENTER</div>
                 <fa-search :breakpoint="800" >
@@ -41,13 +44,12 @@
             		</form>
                 </fa-search>
                 <fa-navigation :breakpoint="800" burgersticky>
-                    <ul>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                    </ul>
+                    <fa-megamenu feed="example.json">
+                        <span slot="desktop-pre" class="nav__bar__title">Shop by</span>
+                    </fa-megamenu>
                 </fa-navigation>
             </fa-header>
-            <div class="content">
+            <div class="content content--bottom">
                 Lorem Ipsum
             </div>
         </div>
