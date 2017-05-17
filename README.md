@@ -3,6 +3,10 @@
 This component provides typical header layout and functionality for responsive websites.
 The following components were designed to work inside the Header component but can work independently.
 
+## Demo
+
+https://jsfiddle.net/du7pzdgs/1/
+
 ## Getting Started
 
 CDN:
