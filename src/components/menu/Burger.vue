@@ -21,7 +21,7 @@
 
 <script>
     export default {
-        name: 'fa-megamenu-burger',
+        name: 'fa-menu-burger',
         data: function() {
             return {
                 'type': null,

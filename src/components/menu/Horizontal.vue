@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    name: 'fa-megamenu-horizontal',
+    name: 'fa-menu-horizontal',
     data: function() {
         return {
         };

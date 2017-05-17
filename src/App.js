@@ -3,7 +3,7 @@ import VueResource from 'vue-resource';
 import Header from './components/Header.vue';
 import Navigation from './components/Navigation.vue';
 import Search from './components/Search.vue';
-import MegaMenu from './components/Megamenu.vue';
+import Menu from './components/Menu.vue';
 
 function plugin (Vue) {
     Vue.use(VueResource);
@@ -11,7 +11,7 @@ function plugin (Vue) {
     Vue.component('fa-header', Header);
     Vue.component('fa-navigation', Navigation);
     Vue.component('fa-search', Search);
-    Vue.component('fa-megamenu', MegaMenu);
+    Vue.component('fa-menu', Menu);
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -24,5 +24,5 @@ export {
     Header,
     Navigation,
     Search,
-    MegaMenu
+    Menu
 }

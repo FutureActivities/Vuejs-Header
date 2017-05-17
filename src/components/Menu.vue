@@ -1,7 +1,7 @@
 <template>
     <div class="nav">
-        <fa-megamenu-horizontal :data="data"></fa-megamenu-horizontal>
-        <fa-megamenu-burger :data="data"></fa-megamenu-burger>
+        <fa-menu-horizontal :data="data"></fa-menu-horizontal>
+        <fa-menu-burger :data="data"></fa-menu-burger>
     </div>
 </template>
 
@@ -10,7 +10,7 @@
     import Burger from './menu/Burger.vue';
 
     export default {
-        name: 'fa-megamenu',
+        name: 'fa-menu',
         data: function() {
             return {
                 data: {}
@@ -29,8 +29,8 @@
             });
         },
         components: {
-            'fa-megamenu-horizontal': Horizontal,
-            'fa-megamenu-burger': Burger
+            'fa-menu-horizontal': Horizontal,
+            'fa-menu-burger': Burger
         }
     }
 </script>
