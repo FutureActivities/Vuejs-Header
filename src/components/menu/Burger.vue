@@ -95,7 +95,12 @@
 </script>
 
 <style lang="scss">
-    .header--desktop:not(.header--sticky) .nav__mobile-menu {
+    /*
+        Hide this burger menu when:
+        - Viewing on desktop and not sticky.
+        - Viewing on desktop and is sticky but nav is not set to use burger on sticky.
+    */
+    .header--desktop:not(.header--sticky) .nav__mobile-menu, .header--desktop.header--sticky .nav:not(.nav__burger) .nav__mobile-menu {
         display: none;
     }
 </style>

@@ -76,7 +76,12 @@ export default {
 </script>
 
 <style lang="scss">
-    .header:not(.header--desktop) .nav__megamenu, .header--sticky .nav__megamenu {
+    /**
+        Hide this menu when:
+        - Viewing on mobile.
+        - Sticky header and nav is set to burger on sticky.
+    */
+    .header:not(.header--desktop) .nav__megamenu, .header--sticky .nav__burger .nav__megamenu {
         display: none;   
     }
         
