@@ -1,5 +1,5 @@
 <template>
-    <div class="nav">
+    <div class="menu">
         <fa-menu-horizontal :data="data"></fa-menu-horizontal>
         <fa-menu-burger :data="data"></fa-menu-burger>
     </div>
@@ -36,7 +36,7 @@
 </script>
 
 <style lang="scss">
-    .nav {
+    .menu {
         &__bar {
             display: flex;
         }

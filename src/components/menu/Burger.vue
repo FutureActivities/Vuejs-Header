@@ -1,18 +1,18 @@
 <template>
-    <div class="nav__mobile-menu">
+    <div class="menu__mobile-menu">
         <ul v-if="current.length == 0">
-            <li v-for="(category,key) in data" class="nav__mobile-menu__item nav__mobile-menu__item--top">
+            <li v-for="(category,key) in data" class="menu__mobile-menu__item menu__mobile-menu__item--top">
                 <a :href="category.url" v-on:click.stop.prevent="setType(key, category)">{{ category.name }}</a>
             </li>
         </ul>
         
         <ul v-if="current.length > 0">
-            <li class="nav__mobile-menu__item nav__mobile-menu__item--back" v-on:click="back">Back</li>
-            <li class="nav__mobile-menu__item nav__mobile-menu__item--parent">
+            <li class="menu__mobile-menu__item menu__mobile-menu__item--back" v-on:click="back">Back</li>
+            <li class="menu__mobile-menu__item menu__mobile-menu__item--parent">
                 <a  v-if="previous().url !== null" :href="previous().url">{{ previous().name }}</a>
                 <span v-else>{{ previous().name }}</span>
             </li>
-            <li v-for="category in current" class="nav__mobile-menu__item" :class="[{'nav__mobile-menu__item--children': hasChildren(category.id)}]">
+            <li v-for="category in current" class="menu__mobile-menu__item" :class="[{'menu__mobile-menu__item--children': hasChildren(category.id)}]">
                 <a :href="category.url" v-on:click.stop.prevent="item(category)">{{ category.name }}</a>
             </li>
         </ul>
@@ -100,7 +100,7 @@
         - Viewing on desktop and not sticky.
         - Viewing on desktop and is sticky but nav is not set to use burger on sticky.
     */
-    .header--desktop:not(.header--sticky) .nav__mobile-menu, .header--desktop.header--sticky .nav:not(.nav__burger) .nav__mobile-menu {
+    .header--desktop:not(.header--sticky) .menu__mobile-menu, .header--desktop.header--sticky .nav:not(.menu__burger) .menu__mobile-menu {
         display: none;
     }
 </style>

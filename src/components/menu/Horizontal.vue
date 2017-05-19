@@ -1,11 +1,11 @@
 <template>
-    <div class="nav__bar">
-        <div class="nav__megamenu" v-for="(item,key) in data" :class="[{'nav__megamenu--parent': item.links}]">
-            <a  v-if="item.url" class="nav__megamenu__item" :href="item.url">{{ item.name }}</a>
-            <span v-else class="nav__megamenu__item">{{ item.name }}</span>
+    <div class="menu__bar">
+        <div class="menu__megamenu" v-for="(item,key) in data" :class="[{'menu__megamenu--parent': item.links}]">
+            <a  v-if="item.url" class="menu__megamenu__item" :href="item.url">{{ item.name }}</a>
+            <span v-else class="menu__megamenu__item">{{ item.name }}</span>
             
-            <div class="nav__megamenu__dropdown" v-show="item.links">
-                <ul v-for="(list,level) in item.links" class="nav__links" :class="levelClass(level)">
+            <div class="menu__megamenu__dropdown" v-show="item.links">
+                <ul v-for="(list,level) in item.links" class="menu__links" :class="levelClass(level)">
                     <li v-for="link in list" :class="levelClass(level)" v-on:mouseover="menuItemHover(key, link.id, level)">
                         <a :href="link.url" :class="[{'active': isActive(key, link.id, level)}]">{{ link.name }}</a>
                     </li>
@@ -81,11 +81,11 @@ export default {
         - Viewing on mobile.
         - Sticky header and nav is set to burger on sticky.
     */
-    .header:not(.header--desktop) .nav__megamenu, .header--sticky .nav__burger .nav__megamenu {
+    .header:not(.header--desktop) .menu__megamenu, .header--sticky .nav__burger .menu__megamenu {
         display: none;   
     }
         
-    .nav__megamenu {
+    .menu__megamenu {
         
         &__dropdown {
             display: none;
@@ -94,7 +94,7 @@ export default {
         
         &--parent:hover {
                       
-            .nav__megamenu__dropdown {
+            .menu__megamenu__dropdown {
                 display: flex;
             }
         }
