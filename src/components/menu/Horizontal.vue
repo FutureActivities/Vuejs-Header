@@ -89,15 +89,18 @@ export default {
         
     .menu__megamenu {
         
-        &__dropdown {
+        &__dropdown-wrapper {
             display: none;
             position: absolute;
         }
         
+        &__dropdown {
+            display: flex;
+        }
+        
         &--parent:hover {
-                      
-            .menu__megamenu__dropdown {
-                display: flex;
+            .menu__megamenu__dropdown-wrapper {
+                display: block;
             }
         }
     }
