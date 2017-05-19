@@ -4,12 +4,14 @@
             <a  v-if="item.url" class="menu__megamenu__item" :href="item.url">{{ item.name }}</a>
             <span v-else class="menu__megamenu__item">{{ item.name }}</span>
             
-            <div class="menu__megamenu__dropdown" v-show="item.links">
-                <ul v-for="(list,level) in item.links" class="menu__links" :class="levelClass(level)">
-                    <li v-for="link in list" :class="levelClass(level)" v-on:mouseover="menuItemHover(key, link.id, level)">
-                        <a :href="link.url" :class="[{'active': isActive(key, link.id, level)}]">{{ link.name }}</a>
-                    </li>
-                </ul>
+            <div class="menu__megamenu__dropdown-wrapper" v-show="item.links">
+                <div class="menu__megamenu__dropdown">
+                    <ul v-for="(list,level) in item.links" class="menu__links" :class="levelClass(level)">
+                        <li v-for="link in list" :class="levelClass(level)" v-on:mouseover="menuItemHover(key, link.id, level)">
+                            <a :href="link.url" :class="[{'active': isActive(key, link.id, level)}]">{{ link.name }}</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
