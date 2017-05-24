@@ -13,7 +13,7 @@
 
     export default {
         name: 'fa-header',
-        data() {
+        data: function() {
             return {
                 desktopView: false
             }
