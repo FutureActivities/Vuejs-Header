@@ -1,6 +1,6 @@
 <template>
   <div class="search" v-bind:class="{ 'search--show': searchActive, 'search--desktop': desktopView, 'search--iconsticky': iconsticky  }">
-    <div class="search__mobile" v-on:click="searchToggle"></div>
+    <div class="search__mobile" v-on:click="searchToggle"><slot name="icon"></slot></div>
     <div class="search__content">
       <slot></slot>
     </div>
@@ -48,7 +48,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .search {
   
   &__mobile {

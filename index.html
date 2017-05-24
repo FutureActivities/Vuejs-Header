@@ -38,12 +38,14 @@
                 <div class="logo">LOGO</div>
                 <div class="logo">MIDDLE-CENTER</div>
                 <fa-search :breakpoint="800" >
+                    <span slot="icon">ICO</span>
                     <form method="post">
             			<input type="text" class="search__input" name="search" placeholder="Search by keyword" />
             			<button class="search__btn"></button>
             		</form>
                 </fa-search>
                 <fa-navigation :breakpoint="800">
+                    <span slot="icon">ICO</span>
                     <fa-menu feed="example.json">
                         <span slot="desktop-pre" class="nav__bar__title">Shop by</span>
                     </fa-menu>

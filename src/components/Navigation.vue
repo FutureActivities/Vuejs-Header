@@ -1,6 +1,6 @@
 <template>
     <nav class="nav" v-bind:class="{ 'nav--show': navActive, 'nav--desktop': desktopView, 'nav--burger': burgersticky }">
-        <div class="nav__mobile" v-on:click="navToggle"></div>
+        <div class="nav__mobile" v-on:click="navToggle"><slot name="icon"></slot></div>
         <div class="nav__wrapper">
             <div class="nav__background" v-on:click="navToggle"></div>
             <div class="nav__container">
@@ -58,7 +58,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     .nav {
         &__wrapper {
             display: block;

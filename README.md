@@ -94,6 +94,12 @@ This will display as normal on desktop but on mobile will move everything contai
 | nav--burgersticky | Applied if the burgersticky prop value is set to true. |
 | nav--show | Applied when the burger menu is opened. |
 
+#### Slots
+
+| Name | Description |
+|--|--|
+| icon | Optionally set the icon content. By default a :before element will be applied with a FontAwesome icon, if using this slot you may want to hide that :before pseudo element with CSS. |
+
 ## Search
 This will display as normal on desktop but on mobile will be replaced by a search icon which when clicked will open the contents in an absolutely positioned container.
 
@@ -117,6 +123,12 @@ This will display as normal on desktop but on mobile will be replaced by a searc
 | search--desktop | Applied when screen resolution is greater or equal to the breakpoint prop value. |
 | search--iconsticky | Applied if the iconsticky prop value is set to true. |
 | search--show | Applied when the search icon is clicked. |
+
+#### Slots
+
+| Name | Description |
+|--|--|
+| icon | Optionally set the icon content. By default a :before element will be applied with a FontAwesome icon, if using this slot you may want to hide that :before pseudo element with CSS. |
 
 ## MegaMenu
 Grabs data about the menu via JSON and builds a multi-level megamenu on desktop and on mobile creates a multi-page navigation view that loads the child links on each click (includes back buttons).
