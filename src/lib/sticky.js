@@ -7,7 +7,7 @@ let listenAction
  * a class name instead of inline css
  */
 export default {
-  bind(el, binding) {
+  bind: function(el, binding) {
     const params = binding.value || {}
     const stickyTop = params.stickyTop || 0
     const stickyClass = params.class || 'header--sticky';
@@ -21,7 +21,7 @@ export default {
     const elementChild = el.firstElementChild;
     
     // Apply sticky class
-    const sticky = () => {
+    const sticky = function() {
       if (active) {
         return
       }
@@ -31,7 +31,7 @@ export default {
     }
 
     // Remove sticky class
-    const reset = () => {
+    const reset = function() {
       if (!active) {
         return
       }
@@ -41,7 +41,7 @@ export default {
     }
 
     // Check scroll position
-    const check = () => {
+    const check = function() {
       const offsetTop = el.getBoundingClientRect().top
       if (offsetTop <= stickyTop) {
         sticky()
@@ -52,9 +52,9 @@ export default {
 
     let scrollerTimer // for bad user experience scroll in mobile
     let scrollEndTimer // for clear scrollerTimer when scroll end
-    listenAction = () => {
+    listenAction = function() {
       clearTimeout(scrollEndTimer)
-      scrollEndTimer = setTimeout(() => {
+      scrollEndTimer = setTimeout(function() {
         clearInterval(scrollerTimer)
         scrollerTimer = null
       }, 1000)
@@ -66,12 +66,12 @@ export default {
 
     window.addEventListener('scroll', listenAction);
     
-    window.addEventListener('load', () => {
+    window.addEventListener('load', function() {
       elementHeight = elementChild.clientHeight;
     });
   },
 
-  unbind() {
+  unbind: function() {
     window.removeEventListener('scroll', listenAction)
   },
 }
