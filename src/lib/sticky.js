@@ -1,4 +1,4 @@
-let listenAction
+var listenAction;
 
 /**
  * Vue Sticky - Adds a sticky class when the element reaches the top
@@ -8,20 +8,20 @@ let listenAction
  */
 export default {
   bind: function(el, binding) {
-    const params = binding.value || {}
-    const stickyTop = params.stickyTop || 0
-    const stickyClass = params.class || 'header--sticky';
+    var params = binding.value || {}
+    var stickyTop = params.stickyTop || 0
+    var stickyClass = params.class || 'header--sticky';
     
     if (stickyTop == -1) // Disable sticky if set to -1
       return;
     
-    let active = false
-    let elementHeight = 0
+    var active = false
+    var elementHeight = 0
     
-    const elementChild = el.firstElementChild;
+    var elementChild = el.firstElementChild;
     
     // Apply sticky class
-    const sticky = function() {
+    var sticky = function() {
       if (active) {
         return
       }
@@ -31,7 +31,7 @@ export default {
     }
 
     // Remove sticky class
-    const reset = function() {
+    var reset = function() {
       if (!active) {
         return
       }
@@ -41,8 +41,8 @@ export default {
     }
 
     // Check scroll position
-    const check = function() {
-      const offsetTop = el.getBoundingClientRect().top
+    var check = function() {
+      var offsetTop = el.getBoundingClientRect().top
       if (offsetTop <= stickyTop) {
         sticky()
       } else {
@@ -50,8 +50,8 @@ export default {
       }
     }
 
-    let scrollerTimer // for bad user experience scroll in mobile
-    let scrollEndTimer // for clear scrollerTimer when scroll end
+    var scrollerTimer // for bad user experience scroll in mobile
+    var scrollEndTimer // for clear scrollerTimer when scroll end
     listenAction = function() {
       clearTimeout(scrollEndTimer)
       scrollEndTimer = setTimeout(function() {
