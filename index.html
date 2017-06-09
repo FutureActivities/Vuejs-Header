@@ -46,7 +46,7 @@
                 </fa-search>
                 <fa-navigation :breakpoint="800">
                     <span slot="icon">ICO</span>
-                    <fa-menu feed="example.json">
+                    <fa-menu feed="example.json" :cache="true" :minutes="0">
                         <span slot="desktop-pre" class="nav__bar__title">Shop by</span>
                     </fa-menu>
                 </fa-navigation>
