@@ -29,7 +29,7 @@
             var self = this;
             
             var local = this.localGet();
-            console.log(local);
+            
             if (this.cache && local !== null) {
                 this.data = local;
             } else {
