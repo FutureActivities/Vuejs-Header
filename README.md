@@ -191,5 +191,4 @@ Where the feed is JSON in the following format:
 | Prop | Description | Type | Default |
 |--|--|--|--|
 | feed | The path to the JSON feed. | String | null |
-| cache | Store the feed in the browsers localStorage. | Boolean | false |
-| minutes | The minutes to store the feed for. | Number | 60 |
+| cache | Store the feed results in the browsers sessionStorage. | Boolean | false |
