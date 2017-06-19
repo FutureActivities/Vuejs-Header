@@ -28,7 +28,7 @@
   },
   "name": "fa-header",
   "description": "This component provides standard header layout and functionality.",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "main": "dist/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

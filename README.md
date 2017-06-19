@@ -175,7 +175,8 @@ Where the feed is JSON in the following format:
                   "url":"#"
                 }
              ]
-          ]
+          ],
+          "custom": "<p>Custom HTML that will be displayed on the full Mega Menu after the links.</p>"
        },
        "standalone":{
           "name":"Standalone Link",

@@ -11,6 +11,7 @@
                             <a :href="link.url" :class="[{'active': isActive(key, link.id, level)}]">{{ link.name }}</a>
                         </li>
                     </ul>
+                    <div v-if="item.custom" v-html="item.custom"></div>
                 </div>
             </div>
         </div>
