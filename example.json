@@ -32,7 +32,9 @@
             {
               "id":2,
               "name":"Other",
-              "url":"#"
+              "url":"#",
+              "prefix":"<strong>custom html</strong>",
+              "suffix":"<strong>custom html</strong>"
             }
          ]
       ]
