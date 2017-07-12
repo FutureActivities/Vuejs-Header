@@ -172,7 +172,10 @@ Where the feed is JSON in the following format:
                 {
                   "id":2,
                   "name":"Other",
-                  "url":"#"
+                  "url":"#",
+                  "img":"url",
+                  "prefix":"<strong>custom html</strong>",
+                  "suffix":"<strong>custom html</strong>"
                 }
              ]
           ],

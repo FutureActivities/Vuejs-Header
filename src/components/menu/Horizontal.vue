@@ -8,7 +8,10 @@
                 <div class="menu__megamenu__dropdown">
                     <ul v-if="item.links" v-for="(list,level) in item.links" class="menu__links" :class="levelClass(level)">
                         <li v-for="link in list" :class="levelClass(level)" v-on:mouseover="menuItemHover(key, link.id, level)">
-                            <a :href="link.url" :class="[{'active': isActive(key, link.id, level)}]">{{ link.name }}</a>
+                            <div v-if="link.prefix" v-html="link.prefix"></div>
+                            <img v-if="link.img" :src="link.img" :alt="link.name" />
+                            <a v-if="link.url" :href="link.url" :class="[{'active': isActive(key, link.id, level)}]">{{ link.name }}</a>
+                            <div v-if="link.suffix" v-html="link.suffix"></div>
                         </li>
                     </ul>
                     <div v-if="item.custom" class="menu__custom" v-html="item.custom"></div>
@@ -46,8 +49,10 @@ export default {
                 item.active = [];
                 
             var active = item.active[level];
-            var children = item.source[id];
-            return children && active === id;
+            if (item.source && item.source[id]) {
+                var children = item.source[id];
+                return children && active === id;
+            }
         },
         /**
          * Desktop Megamenu
@@ -68,9 +73,11 @@ export default {
             item.links.length = nextLevel;
             
             // Set the children
-            var children = item.source[id];
-            if (children)
-                item.links.push(children);
+            if (item.source && item.source[id]) {
+                var children = item.source[id];
+                if (children)
+                    item.links.push(children);
+            }
             
             this.$forceUpdate();
         }

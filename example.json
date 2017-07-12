@@ -37,10 +37,6 @@
          ]
       ]
    },
-   "test": {
-     "name": "TEST",
-     "custom": "<b>Hello</b>"
-   },
    "topsellers":{
       "name":"Top Sellers",
       "url":"#"
