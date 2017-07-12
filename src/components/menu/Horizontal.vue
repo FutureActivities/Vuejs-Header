@@ -1,6 +1,6 @@
 <template>
     <div class="menu__bar">
-        <div class="menu__megamenu" v-for="(item,key) in data" :class="[{'menu__megamenu--parent': item.links || item.custom}, key]">
+        <div class="menu__megamenu" v-for="(item,key) in data" v-if="canShow(item)" :class="[{'menu__megamenu--parent': item.links || item.custom}, key]">
             <a  v-if="item.url" class="menu__megamenu__item" :href="item.url">{{ item.name }}</a>
             <span v-else class="menu__megamenu__item">{{ item.name }}</span>
             
@@ -39,6 +39,15 @@ export default {
          */
         levelClass: function(level) {
             return 'level'+level;
+        },
+        /**
+         * Check if a menu item is visible
+         */
+        canShow: function(item) {
+            if (typeof item.bar === 'undefined')
+                return true;
+                
+            return item.bar;
         },
         /**
          * Check if a category is active to apply

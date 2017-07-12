@@ -183,12 +183,15 @@ Where the feed is JSON in the following format:
        },
        "standalone":{
           "name":"Standalone Link",
-          "url":"#"
+          "url":"#",
+          "bar": true,
+          "burger" true
        }
     }
     
 `links` is the data that is initially displayed in the megamenu dropdown. This is an array where each item will create a new UL element in the mega menu.
 `source` is for the child menu data. This should be organised by the parent ID. When you hover or click on a menu item it will attempt to see if that item has any children by checking for the ID in source.
+Each item can also be hidden from the horizontal mega menu or the burger menu, so you can include links that are only visible on the burger menu, for example.
 
 #### Options
 
