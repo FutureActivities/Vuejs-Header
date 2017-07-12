@@ -1,6 +1,6 @@
 <template>
     <div class="menu__bar">
-        <div class="menu__megamenu" v-for="(item,key) in data" :class="[{'menu__megamenu--parent': item.links || item.custom}]">
+        <div class="menu__megamenu" v-for="(item,key) in data" :class="[{'menu__megamenu--parent': item.links || item.custom}, key]">
             <a  v-if="item.url" class="menu__megamenu__item" :href="item.url">{{ item.name }}</a>
             <span v-else class="menu__megamenu__item">{{ item.name }}</span>
             

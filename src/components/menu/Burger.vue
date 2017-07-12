@@ -1,7 +1,7 @@
 <template>
     <div class="menu__mobile-menu">
         <ul v-if="current.length == 0">
-            <li v-for="(category,key) in data" class="menu__mobile-menu__item menu__mobile-menu__item--top">
+            <li v-for="(category,key) in data" class="menu__mobile-menu__item menu__mobile-menu__item--top" :class="[key]">
                 <a :href="category.url" v-on:click.stop.prevent="setType(key, category)">{{ category.name }}</a>
             </li>
         </ul>
@@ -34,7 +34,10 @@
         },
         methods: {
             hasChildren: function(categoryId) {
-                return this.data[this.type].source[categoryId];
+                if (this.data[this.type].source)
+                    return this.data[this.type].source[categoryId];
+                    
+                return false;
             },
 
             /**
