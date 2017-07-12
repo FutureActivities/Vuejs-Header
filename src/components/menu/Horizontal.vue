@@ -9,10 +9,10 @@
                     <ul v-if="item.links" v-for="(list,level) in item.links" class="menu__links" :class="levelClass(level)">
                         <li v-for="link in list" :class="levelClass(level)" v-on:mouseover="menuItemHover(key, link.id, level)">
                             <a v-if="link.url" :href="link.url" :class="[{'active': isActive(key, link.id, level)}]">
-                                <div v-if="link.prefix" v-html="link.prefix"></div>
-                                <img v-if="link.img" :src="link.img" :alt="link.name" />
-                                <span>{{ link.name }}</span>
-                                <div v-if="link.suffix" v-html="link.suffix"></div>
+                                <div v-if="link.prefix" class="prefix" v-html="link.prefix"></div>
+                                <div v-if="link.img" class="image"><img :src="link.img" :alt="link.name" /></div>
+                                <span class="name">{{ link.name }}</span>
+                                <div v-if="link.suffix" class="suffix" v-html="link.suffix"></div>
                             </a>
                         </li>
                     </ul>
