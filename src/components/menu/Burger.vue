@@ -54,9 +54,9 @@
              * Show the appropriate submenu
              */
             setType: function(key, category) {
-                if (category.prevent) // Prevent any behaviours
-                    return;
-                    
+                if (category.onclick) // Override default behaviour
+                    return window[category.onclick]();
+                
                 if (category.url)
                     window.location.href = category.url;
 

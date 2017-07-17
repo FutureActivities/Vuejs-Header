@@ -44,7 +44,7 @@
       "url":"#",
       "bar": false,
       "burger": true,
-      "prevent": true
+      "onclick": "myFunctionName"
    },
    "promotions":{
       "name":"Promotions",
