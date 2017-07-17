@@ -54,7 +54,7 @@
              * Show the appropriate submenu
              */
             setType: function(key, category) {
-                if (category.onclick) // Override default behaviour
+                if (typeof category.onclick !== 'undefined') // Override default behaviour
                     return window[category.onclick]();
                 
                 if (category.url)
