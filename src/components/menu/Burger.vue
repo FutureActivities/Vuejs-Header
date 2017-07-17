@@ -58,7 +58,7 @@
                     return window[category.onclick]();
                 
                 if (category.url)
-                    window.location.href = category.url;
+                    return window.location.href = category.url;
 
                 this.type = key;
                 this.addHistory({
