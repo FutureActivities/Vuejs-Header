@@ -43,7 +43,8 @@
       "name":"Top Sellers",
       "url":"#",
       "bar": false,
-      "burger": true
+      "burger": true,
+      "prevent": true
    },
    "promotions":{
       "name":"Promotions",
