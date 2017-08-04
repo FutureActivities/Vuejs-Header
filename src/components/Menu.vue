@@ -1,6 +1,6 @@
 <template>
     <div class="menu">
-        <fa-menu-horizontal :data="data"></fa-menu-horizontal>
+        <fa-menu-horizontal :data="data" :display="display"></fa-menu-horizontal>
         <fa-menu-burger :data="data"></fa-menu-burger>
     </div>
 </template>
@@ -23,7 +23,11 @@
             'cache': {
                 type: Boolean,
                 default: false
-            }
+            },
+            'display': {
+                type: String,
+                default: 'multilevel'
+            },
         },
         created: function() {
             var self = this;

@@ -193,9 +193,14 @@ Where the feed is JSON in the following format:
 `source` is for the child menu data. This should be organised by the parent ID. When you hover or click on a menu item it will attempt to see if that item has any children by checking for the ID in source.
 Each item can also be hidden from the horizontal mega menu or the burger menu, so you can include links that are only visible on the burger menu, for example.
 
+When displaying the menu you can also set how the menu should display, currently this component provides 2 options: `columns` and `multilevel` with multilevel being the default.
+The columns view will display each link as a heading of a column and then render 1 level of children underneath it.
+The multilevel view will list all the links in column 1 and then as you hover over a link the children are displayed in the next column.
+
 #### Options
 
 | Prop | Description | Type | Default |
 |--|--|--|--|
 | feed | The path to the JSON feed. | String | null |
 | cache | Store the feed results in the browsers sessionStorage. | Boolean | false |
+| display | Display the menu as `columns` or `multilevel` | String | multilevel |

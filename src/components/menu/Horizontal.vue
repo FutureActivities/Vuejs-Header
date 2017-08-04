@@ -5,7 +5,9 @@
             <span v-else class="menu__megamenu__item">{{ item.name }}</span>
             
             <div class="menu__megamenu__dropdown-wrapper" v-if="item.links || item.custom">
-                <div class="menu__megamenu__dropdown">
+                
+                <!-- Multilevel Menu - Displays the children on hover of the parent -->
+                <div class="menu__megamenu__dropdown" v-if="display == 'multilevel'">
                     <ul v-if="item.links" v-for="(list,level) in item.links" class="menu__links" :class="levelClass(level)">
                         <li v-for="link in list" :class="levelClass(level)" v-on:mouseover="menuItemHover(key, link.id, level)">
                             <a v-if="link.url" :href="link.url" :class="[{'active': isActive(key, link.id, level)}]">
@@ -16,8 +18,32 @@
                             </a>
                         </li>
                     </ul>
-                    <div v-if="item.custom" class="menu__custom" v-html="item.custom"></div>
                 </div>
+                
+                <!-- Columns Menu - Supports 1 level only and displays underneath the parent link in columns -->
+                <div class="menu__megamenu__columns" v-if="display == 'columns'">
+                    <div v-if="item.links" v-for="(list,level) in item.links" class="menu__links">
+                        <div v-for="link in list" :class="levelClass(level)" class="menu__links__parent">
+                            <div v-if="link.prefix" class="prefix" v-html="link.prefix"></div>
+                            <a :href="link.url" class="name" v-if="link.url">{{ link.name }}</a>
+                            <span class="name" v-else>{{ link.name }}</span>
+                            <ul>
+                                <li v-for="child in getChildren(key, link.id)">
+                                    <a v-if="child.url" :href="child.url">
+                                        <div v-if="child.prefix" class="prefix" v-html="child.prefix"></div>
+                                        <div v-if="child.img" class="image"><img :src="child.img" :alt="child.name" /></div>
+                                        <span class="name">{{ child.name }}</span>
+                                        <div v-if="child.suffix" class="suffix" v-html="child.suffix"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div v-if="link.suffix" class="suffix" v-html="link.suffix"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div v-if="item.custom" class="menu__custom" v-html="item.custom"></div>
+
             </div>
         </div>
     </div>
@@ -31,7 +57,8 @@ export default {
         };
     },
     props: {
-        'data': Object
+        'data': Object,
+        'display': String
     },
     methods: {
         /**
@@ -65,6 +92,14 @@ export default {
                 return children && active === id;
             }
         },
+        getChildren: function(key, id) {
+            var item = this.data[key];
+            
+            if (item.source && item.source[id])
+                return item.source[id];
+                
+            return null;
+        },
         /**
          * Desktop Megamenu
          * On hover show the child menu if available.
@@ -84,11 +119,9 @@ export default {
             item.links.length = nextLevel;
             
             // Set the children
-            if (item.source && item.source[id]) {
-                var children = item.source[id];
-                if (children)
-                    item.links.push(children);
-            }
+            var children = this.getChildren(key, id);
+            if (children)
+                item.links.push(children);
             
             this.$forceUpdate();
         }
@@ -115,6 +148,12 @@ export default {
         
         &__dropdown {
             display: flex;
+        }
+        
+        &__columns {
+            .menu__links {
+                display: flex;
+            }
         }
         
         &--parent:hover {

@@ -65,7 +65,9 @@
                     'name': this.data[key].name,
                     'url': null
                 });
-                this.current = this.data[key].links[0];
+                
+                var merged = [].concat.apply([], this.data[key].links);
+                this.current = merged;
             },
 
             /**
