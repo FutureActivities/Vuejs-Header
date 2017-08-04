@@ -25,8 +25,8 @@
                     <div v-if="item.links" v-for="(list,level) in item.links" class="menu__links">
                         <div v-for="link in list" :class="levelClass(level)" class="menu__links__parent">
                             <div v-if="link.prefix" class="prefix" v-html="link.prefix"></div>
-                            <a :href="link.url" class="name" v-if="link.url">{{ link.name }}</a>
-                            <span class="name" v-else>{{ link.name }}</span>
+                            <a :href="link.url" class="menu__links__heading" v-if="link.url">{{ link.name }}</a>
+                            <span class="menu__links__heading" v-else>{{ link.name }}</span>
                             <ul>
                                 <li v-for="child in getChildren(key, link.id)">
                                     <a v-if="child.url" :href="child.url">
