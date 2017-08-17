@@ -18,6 +18,8 @@
                             </a>
                         </li>
                     </ul>
+                    
+                    <div v-if="item.custom" class="menu__custom" v-html="item.custom"></div>
                 </div>
                 
                 <!-- Columns Menu - Supports 1 level only and displays underneath the parent link in columns -->
@@ -40,10 +42,9 @@
                             <div v-if="link.suffix" class="suffix" v-html="link.suffix"></div>
                         </div>
                     </div>
+                    
+                    <div v-if="item.custom" class="menu__custom" v-html="item.custom"></div>
                 </div>
-                
-                <div v-if="item.custom" class="menu__custom" v-html="item.custom"></div>
-
             </div>
         </div>
     </div>
