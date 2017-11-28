@@ -1,8 +1,8 @@
 <template>
     <div class="menu__bar">
         <div class="menu__megamenu" v-for="(item,key) in data" v-if="canShow(item)" :class="[{'menu__megamenu--parent': item.links || item.custom}, key]">
-            <a  v-if="item.url" class="menu__megamenu__item" :href="item.url">{{ item.name }}</a>
-            <span v-else class="menu__megamenu__item">{{ item.name }}</span>
+            <a  v-if="item.url" class="menu__megamenu__item" :class="item.classes" :href="item.url">{{ item.name }}</a>
+            <span v-else class="menu__megamenu__item" :class="item.classes">{{ item.name }}</span>
             
             <div class="menu__megamenu__dropdown-wrapper" v-if="item.links || item.custom">
                 
@@ -10,7 +10,7 @@
                 <div class="menu__megamenu__dropdown" v-if="display == 'multilevel'">
                     <ul v-if="item.links" v-for="(list,level) in item.links" class="menu__links" :class="levelClass(level)">
                         <li v-for="link in list" :class="levelClass(level)" v-on:mouseover="menuItemHover(key, link.id, level)">
-                            <a v-if="link.url" :href="link.url" :class="[{'active': isActive(key, link.id, level)}]">
+                            <a v-if="link.url" :href="link.url" :class="[{'active': isActive(key, link.id, level)}, link.classes]">
                                 <div v-if="link.prefix" class="prefix" v-html="link.prefix"></div>
                                 <div v-if="link.img" class="image"><img :src="link.img" :alt="link.name" /></div>
                                 <span class="name">{{ link.name }}</span>
@@ -27,11 +27,11 @@
                     <div v-if="item.links" v-for="(list,level) in item.links" class="menu__links">
                         <div v-for="link in list" :class="levelClass(level)" class="menu__links__parent">
                             <div v-if="link.prefix" class="prefix" v-html="link.prefix"></div>
-                            <a :href="link.url" class="menu__links__heading" v-if="link.url">{{ link.name }}</a>
-                            <span class="menu__links__heading" v-else>{{ link.name }}</span>
+                            <a :href="link.url" class="menu__links__heading" :class="item.classes" v-if="link.url">{{ link.name }}</a>
+                            <span class="menu__links__heading" :class="item.classes" v-else>{{ link.name }}</span>
                             <ul>
                                 <li v-for="child in getChildren(key, link.id)">
-                                    <a v-if="child.url" :href="child.url">
+                                    <a v-if="child.url" :href="child.url" :class="child.classes">
                                         <div v-if="child.prefix" class="prefix" v-html="child.prefix"></div>
                                         <div v-if="child.img" class="image"><img :src="child.img" :alt="child.name" /></div>
                                         <span class="name">{{ child.name }}</span>

@@ -6,7 +6,8 @@
             {
               "id": 3,
               "name": "Child Link",
-              "url": "#"
+              "url": "#",
+              "classes": ["custom-class"]
             },
             {
               "id": 4,
@@ -37,7 +38,8 @@
               "suffix":"<strong>custom html</strong>"
             }
          ]
-      ]
+      ],
+      "classes": ["custom-class"]
    },
    "topsellers":{
       "name":"Top Sellers",
