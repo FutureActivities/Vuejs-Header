@@ -1,7 +1,8 @@
 <template>
     <div class="menu__bar">
         <div class="menu__megamenu" v-for="(item,key) in data" v-if="canShow(item)" :class="[{'menu__megamenu--parent': item.links || item.custom}, key]">
-            <a  v-if="item.url" class="menu__megamenu__item" :class="item.classes" :href="item.url">{{ item.name }}</a>
+            <div v-if="item.override" class="menu__megamenu__item"  :class="item.classes" v-html="item.override"></div>
+            <a v-else-if="item.url" class="menu__megamenu__item" :class="item.classes" :href="item.url">{{ item.name }}</a>
             <span v-else class="menu__megamenu__item" :class="item.classes">{{ item.name }}</span>
             
             <div class="menu__megamenu__dropdown-wrapper" v-if="item.links || item.custom">

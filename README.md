@@ -187,12 +187,21 @@ Where the feed is JSON in the following format:
           "url":"#",
           "bar": true,
           "burger" true
+       },
+       "mylink": {
+           "name":"Another Link",
+           "override":"<strong>LINK</strong>"
        }
     }
     
 `links` is the data that is initially displayed in the megamenu dropdown. This is an array where each item will create a new UL element in the mega menu.
+
 `source` is for the child menu data. This should be organised by the parent ID. When you hover or click on a menu item it will attempt to see if that item has any children by checking for the ID in source.
 Each item can also be hidden from the horizontal mega menu or the burger menu, so you can include links that are only visible on the burger menu, for example.
+
+`override` allows you to use your own HTML in the horizontal bar menu item.
+
+`custom` allows you to use your own HTML inside the horizontal bar mega menu.
 
 When displaying the menu you can also set how the menu should display, currently this component provides 2 options: `columns` and `multilevel` with multilevel being the default.
 The columns view will display each link as a heading of a column and then render 1 level of children underneath it.

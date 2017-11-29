@@ -39,14 +39,15 @@
             }
          ]
       ],
-      "classes": ["custom-class"]
+      "classes": ["custom-class"],
+      "override": "Test"
    },
    "topsellers":{
       "name":"Top Sellers",
       "url":"#",
       "bar": false,
       "burger": true,
-      "onclick": "myFunctionName"
+      "custom": "myFunctionName"
    },
    "promotions":{
       "name":"Promotions",
