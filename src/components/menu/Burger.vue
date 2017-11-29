@@ -57,7 +57,7 @@
                 if (typeof category.onclick !== 'undefined') // Optionally override default behaviour
                     return window[category.onclick](category);
                 
-                if (category.url)
+                if (!('links' in this.data[key]) && category.url)
                     return window.location.href = category.url;
 
                 this.type = key;
@@ -67,6 +67,8 @@
                 });
                 
                 var merged = [].concat.apply([], this.data[key].links);
+                
+                this.addHistory(category);
                 this.current = merged;
             },
 
