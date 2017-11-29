@@ -77,11 +77,12 @@
              */
             item: function(category) {
                 var children = this.hasChildren(category.id);
-                if (!children)
+                if (typeof children === 'undefined' || !children) {
                     window.location.href = category.url;
-
-                this.addHistory(category);
-                this.current = children;
+                } else {
+                    this.addHistory(category);
+                    this.current = children;
+                }
             },
 
             /**
