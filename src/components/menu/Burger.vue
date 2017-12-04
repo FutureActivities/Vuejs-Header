@@ -2,24 +2,26 @@
     <div class="menu__mobile-menu">
         <ul v-if="current.length == 0">
             <li v-for="(category,key) in data" v-if="canShow(category)"  class="menu__mobile-menu__item menu__mobile-menu__item--top" :class="[key]">
-                <a :href="category.url" v-on:click.stop.prevent="setType(key, category)">{{ category.name }}</a>
+                <fa-menu-link :vue-router="vueRouter" :url="category.url" v-on:click.stop.prevent="setType(key, category)">{{ category.name }}</fa-menu-link>
             </li>
         </ul>
         
         <ul v-if="current.length > 0">
             <li class="menu__mobile-menu__item menu__mobile-menu__item--back" v-on:click="back">Back</li>
             <li class="menu__mobile-menu__item menu__mobile-menu__item--parent">
-                <a  v-if="previous().url !== null" :href="previous().url">{{ previous().name }}</a>
+                <fa-menu-link v-if="previous().url !== null" :vue-router="vueRouter" :url="previous().url">{{ previous().name }}</fa-menu-link>
                 <span v-else>{{ previous().name }}</span>
             </li>
             <li v-for="category in current" class="menu__mobile-menu__item" :class="[{'menu__mobile-menu__item--children': hasChildren(category.id)}]">
-                <a :href="category.url" v-on:click.stop.prevent="item(category)">{{ category.name }}</a>
+                <fa-menu-link :vue-router="vueRouter" :url="category.url" v-on:click.stop.prevent="item(category)">{{ category.name }}</fa-menu-link>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
+    import FaLink from './Link.vue'
+    
     export default {
         name: 'fa-menu-burger',
         data: function() {
@@ -30,7 +32,15 @@
             };
         },
         props: {
-            'data': Object
+            'data': {
+                type: Object,
+                required: true
+            },
+            'vueRouter': {
+                type: Boolean,
+                default: false,
+                required: false
+            }
         },
         methods: {
             hasChildren: function(categoryId) {
@@ -58,7 +68,7 @@
                     return window[category.onclick](category);
                 
                 if (!('links' in this.data[key]) && category.url)
-                    return window.location.href = category.url;
+                    return this.goTo(category.url);
 
                 this.type = key;
                 this.addHistory({
@@ -78,7 +88,7 @@
             item: function(category) {
                 var children = this.hasChildren(category.id);
                 if (typeof children === 'undefined' || !children) {
-                    window.location.href = category.url;
+                    this.goTo(category.url);
                 } else {
                     this.addHistory(category);
                     this.current = children;
@@ -110,7 +120,20 @@
             previous: function() {
                 var previous = this.history[this.history.length - 1];
                 return previous.category;
+            },
+            
+            /**
+             * Go to a URL
+             */
+            goTo: function(url) {
+                if (this.vueRouter)
+                    this.$router.push(url);
+                else
+                    window.location.href = url;
             }
+        },
+        components: {
+            'fa-menu-link': FaLink
         }
     }
 </script>

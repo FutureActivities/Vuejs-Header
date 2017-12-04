@@ -1,7 +1,7 @@
 <template>
     <div class="menu">
-        <fa-menu-horizontal :data="data" :display="display"></fa-menu-horizontal>
-        <fa-menu-burger :data="data"></fa-menu-burger>
+        <fa-menu-horizontal :data="data" :display="display" :vue-router="vueRouter"></fa-menu-horizontal>
+        <fa-menu-burger :data="data" :vue-router="vueRouter"></fa-menu-burger>
     </div>
 </template>
 
@@ -28,6 +28,11 @@
                 type: String,
                 default: 'multilevel'
             },
+            'vueRouter': {
+                type: Boolean,
+                default: false,
+                required: false
+            }
         },
         created: function() {
             var self = this;

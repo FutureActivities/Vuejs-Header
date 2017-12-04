@@ -40,12 +40,11 @@
          ]
       ],
       "classes": ["custom-class"],
-      "override": "Test",
       "url":"#"
    },
    "topsellers":{
       "name":"Top Sellers",
-      "url":"http://google.com",
+      "url":"http://google.co.uk",
       "bar": false,
       "burger": true,
       "custom": "myFunctionName"

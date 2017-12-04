@@ -1,9 +1,10 @@
 <template>
     <div class="menu__bar">
         <div class="menu__megamenu" v-for="(item,key) in data" v-if="canShow(item)" :class="[{'menu__megamenu--parent': item.links || item.custom}, key]">
-            <div v-if="item.override" class="menu__megamenu__item"  :class="item.classes" v-html="item.override"></div>
-            <a v-else-if="item.url" class="menu__megamenu__item" :class="item.classes" :href="item.url">{{ item.name }}</a>
-            <span v-else class="menu__megamenu__item" :class="item.classes">{{ item.name }}</span>
+            <fa-menu-link class="menu__megamenu__item" :vue-router="vueRouter" :classes="item.classes" :url="item.url">
+                <div v-if="item.override" v-html="item.override"></div>
+                <span v-else>{{ item.name }}</span>
+            </fa-menu-link>
             
             <div class="menu__megamenu__dropdown-wrapper" v-if="item.links || item.custom">
                 
@@ -11,12 +12,12 @@
                 <div class="menu__megamenu__dropdown" v-if="display == 'multilevel'">
                     <ul v-if="item.links" v-for="(list,level) in item.links" class="menu__links" :class="levelClass(level)">
                         <li v-for="link in list" :class="levelClass(level)" v-on:mouseover="menuItemHover(key, link.id, level)">
-                            <a v-if="link.url" :href="link.url" :class="[{'active': isActive(key, link.id, level)}, link.classes]">
+                            <fa-menu-link v-if="link.url" :vue-router="vueRouter" :url="link.url" :classes="[{'active': isActive(key, link.id, level)}, link.classes]">
                                 <div v-if="link.prefix" class="prefix" v-html="link.prefix"></div>
                                 <div v-if="link.img" class="image"><img :src="link.img" :alt="link.name" /></div>
                                 <span class="name">{{ link.name }}</span>
                                 <div v-if="link.suffix" class="suffix" v-html="link.suffix"></div>
-                            </a>
+                            </fa-menu-link>
                         </li>
                     </ul>
                     
@@ -28,16 +29,16 @@
                     <div v-if="item.links" v-for="(list,level) in item.links" class="menu__links">
                         <div v-for="link in list" :class="levelClass(level)" class="menu__links__parent">
                             <div v-if="link.prefix" class="prefix" v-html="link.prefix"></div>
-                            <a :href="link.url" class="menu__links__heading" :class="item.classes" v-if="link.url">{{ link.name }}</a>
+                            <fa-menu-link :vue-router="vueRouter" :url="link.url" class="menu__links__heading" :classes="item.classes" v-if="link.url">{{ link.name }}</fa-menu-link>
                             <span class="menu__links__heading" :class="item.classes" v-else>{{ link.name }}</span>
                             <ul>
                                 <li v-for="child in getChildren(key, link.id)">
-                                    <a v-if="child.url" :href="child.url" :class="child.classes">
+                                    <fa-menu-link v-if="child.url" :vue-router="vueRouter" :url="child.url" :classes="child.classes">
                                         <div v-if="child.prefix" class="prefix" v-html="child.prefix"></div>
                                         <div v-if="child.img" class="image"><img :src="child.img" :alt="child.name" /></div>
                                         <span class="name">{{ child.name }}</span>
                                         <div v-if="child.suffix" class="suffix" v-html="child.suffix"></div>
-                                    </a>
+                                    </fa-menu-link>
                                 </li>
                             </ul>
                             <div v-if="link.suffix" class="suffix" v-html="link.suffix"></div>
@@ -52,6 +53,8 @@
 </template>
 
 <script>
+import FaLink from './Link.vue'
+
 export default {
     name: 'fa-menu-horizontal',
     data: function() {
@@ -59,8 +62,19 @@ export default {
         };
     },
     props: {
-        'data': Object,
-        'display': String
+        'data': {
+            type: Object,
+            required: true
+        },
+        'display': {
+            type: String,
+            default: 'multilevel'
+        },
+        'vueRouter': {
+            type: Boolean,
+            default: false,
+            required: false
+        }
     },
     methods: {
         /**
@@ -127,6 +141,9 @@ export default {
             
             this.$forceUpdate();
         }
+    },
+    components: {
+        'fa-menu-link': FaLink
     }
 }
 </script>
