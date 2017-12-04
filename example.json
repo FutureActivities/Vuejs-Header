@@ -40,7 +40,7 @@
          ]
       ],
       "classes": ["custom-class"],
-      "url":"#"
+      "override": "<strong>test</strong>"
    },
    "topsellers":{
       "name":"Top Sellers",
