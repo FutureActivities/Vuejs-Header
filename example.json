@@ -6,20 +6,20 @@
             {
               "id": 3,
               "name": "Child Link",
-              "url": "#",
+              "url": "#child",
               "classes": ["custom-class"]
             },
             {
               "id": 4,
               "name": "Another Child Link",
-              "url": "#"
+              "url": "#another"
             }
           ],
           "4": [
             {
               "id": 5,
               "name": "Next level child",
-              "url": "#"
+              "url": "#next"
             }
           ]
       },
@@ -28,12 +28,12 @@
             {
               "id": 1,
               "name":"Parent",
-              "url":"#"
+              "url":"#parent"
             },
             {
               "id":3,
               "name":"Other",
-              "url":"#",
+              "url":"#other",
               "prefix":"<strong>custom html</strong>",
               "suffix":"<strong>custom html</strong>"
             }
@@ -44,13 +44,13 @@
    },
    "topsellers":{
       "name":"Top Sellers",
-      "url":"http://google.co.uk",
+      "url":"#top",
       "bar": false,
       "burger": true,
       "custom": "myFunctionName"
    },
    "promotions":{
       "name":"Promotions",
-      "url":"#"
+      "url":"#promo"
    }
 }

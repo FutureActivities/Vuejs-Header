@@ -9,7 +9,7 @@
         <ul v-if="current.length > 0">
             <li class="menu__mobile-menu__item menu__mobile-menu__item--back" v-on:click="back">Back</li>
             <li class="menu__mobile-menu__item menu__mobile-menu__item--parent">
-                <fa-menu-link v-if="previous().url !== null" :vue-router="vueRouter" :url="previous().url">{{ previous().name }}</fa-menu-link>
+                <fa-menu-link v-if="previous().url !== null" :vue-router="vueRouter" :url="previous().url" v-on:click="">{{ previous().name }}</fa-menu-link>
                 <span v-else>{{ previous().name }}</span>
             </li>
             <li v-for="category in current" class="menu__mobile-menu__item" :class="[{'menu__mobile-menu__item--children': hasChildren(category.id)}]">
