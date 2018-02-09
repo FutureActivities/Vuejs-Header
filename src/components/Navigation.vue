@@ -4,7 +4,7 @@
         <div class="nav__wrapper">
             <div class="nav__background" v-on:click="navToggle"></div>
             <div class="nav__container">
-                <div class="nav__close" v-on:click="navToggle"></div>
+                <div class="nav__close" v-on:click="navToggle"><slot name="close-icon"></slot></div>
                 <slot></slot>
             </div>
         </div>
