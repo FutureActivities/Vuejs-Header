@@ -2,7 +2,7 @@
     <div class="menu__mobile-menu">
         <ul v-if="current.length == 0">
             <li v-for="(category,key) in data" v-if="canShow(category)"  class="menu__mobile-menu__item menu__mobile-menu__item--top" :class="[key]">
-                <fa-menu-link :vue-router="vueRouter" :url="category.url" v-on:click.stop.prevent="setType(key, category)">{{ category.name }}</fa-menu-link>
+                <fa-menu-link :url="category.url" v-on:click.stop.prevent="setType(key, category)">{{ category.name }}</fa-menu-link>
             </li>
         </ul>
         
@@ -13,7 +13,7 @@
                 <span v-else>{{ previous().name }}</span>
             </li>
             <li v-for="category in current" class="menu__mobile-menu__item" :class="[{'menu__mobile-menu__item--children': hasChildren(category.id)}]">
-                <fa-menu-link :vue-router="vueRouter" :url="category.url" v-on:click.stop.prevent="item(category)">{{ category.name }}</fa-menu-link>
+                <fa-menu-link :url="category.url" v-on:click.stop.prevent="item(category)">{{ category.name }}</fa-menu-link>
             </li>
         </ul>
     </div>
