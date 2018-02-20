@@ -21,34 +21,42 @@
             }
         },
         props: {
-            'breakpoint': {
+            breakpoint: {
                 type: Number,
                 default: 1024
             },
             /* Show burger icon when scrolling */
-            'burgersticky': {
+            burgersticky: {
+                type: Boolean,
+                default: false
+            },
+            value: {
                 type: Boolean,
                 default: false
             }
         },
         watch: {
-            '$mq.resize': 'screenResize'
-        },
-        methods: {
-            navToggle: function(event) {
-                this.navActive = !this.navActive;
-
-                if (this.navActive)
-                    document.body.className += " noscroll";
-                else
-                    document.body.className = document.body.className.replace(" noscroll", "");
-
-            },
-            screenResize: function() {
+            '$mq.resize': function() {
                 if (this.$mq.above(this.breakpoint))
                     this.desktopView = true;
                 else
                     this.desktopView = false;
+            },
+            value: function(newValue) {
+                this.navActive = newValue;
+                this.setBodyClass();
+            }
+        },
+        methods: {
+            navToggle: function(event) {
+                this.navActive = !this.navActive;
+                this.$emit('input', this.navActive);
+            },
+            setBodyClass: function() {
+                if (this.navActive)
+                    document.body.className += " noscroll";
+                else
+                    document.body.className = document.body.className.replace(" noscroll", "");
             }
         },
         created: function() {

@@ -1,5 +1,6 @@
 <template>
-    <a v-if="url" :class="classes" :href="url" v-on:click="click"><slot></slot></a>
+    <router-link v-if="vueRouter && url" :class="classes" :to="url" v-on:click="click"><slot></slot></router-link>
+    <a v-else-if="url" :class="classes" :href="url" v-on:click="click"><slot></slot></a>
     <div v-else :class="classes"><slot></slot></div>
 </template>
 
@@ -12,6 +13,11 @@
             }
         },
         props: {
+            vueRouter: {
+                type: Boolean,
+                default: false,
+                required: false
+            },
             classes: {
                 type: Array,
                 default: function () { return [] },

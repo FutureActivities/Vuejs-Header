@@ -12,7 +12,7 @@
                 <div class="menu__megamenu__dropdown" v-if="display == 'multilevel'">
                     <ul v-if="item.links" v-for="(list,level) in item.links" class="menu__links" :class="levelClass(level)">
                         <li v-for="link in list" :class="levelClass(level)" v-on:mouseover="menuItemHover(key, link.id, level)">
-                            <fa-menu-link v-if="link.url" :vue-router="vueRouter" :url="link.url" :classes="[{'active': isActive(key, link.id, level)}, link.classes]">
+                            <fa-menu-link v-if="link.url" :vue-router="vueRouter" :url="link.url" :classes="[{'active': isActive(key, link.id, level)}, link.classes]" v-on:click="$emit('click')">
                                 <div v-if="link.prefix" class="prefix" v-html="link.prefix"></div>
                                 <div v-if="link.img" class="image"><img :src="link.img" :alt="link.name" /></div>
                                 <span class="name">{{ link.name }}</span>
@@ -29,11 +29,11 @@
                     <div v-if="item.links" v-for="(list,level) in item.links" class="menu__links">
                         <div v-for="link in list" :class="levelClass(level)" class="menu__links__parent">
                             <div v-if="link.prefix" class="prefix" v-html="link.prefix"></div>
-                            <fa-menu-link :vue-router="vueRouter" :url="link.url" class="menu__links__heading" :classes="item.classes" v-if="link.url">{{ link.name }}</fa-menu-link>
+                            <fa-menu-link :vue-router="vueRouter" :url="link.url" class="menu__links__heading" :classes="item.classes" v-if="link.url" v-on:click="$emit('click')">{{ link.name }}</fa-menu-link>
                             <span class="menu__links__heading" :class="item.classes" v-else>{{ link.name }}</span>
                             <ul>
                                 <li v-for="child in getChildren(key, link.id)">
-                                    <fa-menu-link v-if="child.url" :vue-router="vueRouter" :url="child.url" :classes="child.classes">
+                                    <fa-menu-link v-if="child.url" :vue-router="vueRouter" :url="child.url" :classes="child.classes" v-on:click="$emit('click')">
                                         <div v-if="child.prefix" class="prefix" v-html="child.prefix"></div>
                                         <div v-if="child.img" class="image"><img :src="child.img" :alt="child.name" /></div>
                                         <span class="name">{{ child.name }}</span>

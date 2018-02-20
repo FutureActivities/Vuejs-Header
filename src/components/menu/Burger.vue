@@ -126,6 +126,8 @@
              * Go to a URL
              */
             goTo: function(url) {
+                this.$emit('click');
+                
                 if (this.vueRouter)
                     this.$router.push(url);
                 else

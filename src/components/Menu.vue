@@ -1,7 +1,7 @@
 <template>
     <div class="menu">
-        <fa-menu-horizontal :data="data" :display="display" :vue-router="vueRouter"></fa-menu-horizontal>
-        <fa-menu-burger :data="data" :vue-router="vueRouter"></fa-menu-burger>
+        <fa-menu-horizontal :data="data" :display="display" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-horizontal>
+        <fa-menu-burger :data="data" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-burger>
     </div>
 </template>
 
