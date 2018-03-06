@@ -1,7 +1,7 @@
 <template>
     <div class="menu">
         <div class="menu__bar">
-            <fa-menu-megamenu v-for="(item,key) in data"  :item="item" :item-class="key" :display="display" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-megamenu>
+            <fa-menu-megamenu v-for="(item,key) in data" :key="key" :item="item" :item-class="key" :display="display" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-megamenu>
         </div>
         <fa-menu-burger :data="data" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-burger>
     </div>
