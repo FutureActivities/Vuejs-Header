@@ -9,7 +9,6 @@
         name: 'fa-menu-link',
         data: function() {
             return {
-                
             }
         },
         props: {

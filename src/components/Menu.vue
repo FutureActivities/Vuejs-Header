@@ -1,12 +1,14 @@
 <template>
     <div class="menu">
-        <fa-menu-horizontal :data="data" :display="display" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-horizontal>
+        <div class="menu__bar">
+            <fa-menu-megamenu v-for="(item,key) in data"  :item="item" :item-class="key" :display="display" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-megamenu>
+        </div>
         <fa-menu-burger :data="data" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-burger>
     </div>
 </template>
 
 <script>
-    import Horizontal from './menu/Horizontal.vue';
+    import MegaMenu from './menu/MegaMenu.vue';
     import Burger from './menu/Burger.vue';
 
     export default {
@@ -67,7 +69,7 @@
             }
         },
         components: {
-            'fa-menu-horizontal': Horizontal,
+            'fa-menu-megamenu': MegaMenu,
             'fa-menu-burger': Burger
         }
     }
