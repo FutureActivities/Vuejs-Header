@@ -1,9 +1,9 @@
 <template>
     <div class="menu">
         <div class="menu__bar">
-            <fa-menu-megamenu v-for="(item,key) in data" :key="key" :item="item" :item-class="key" :display="display" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-megamenu>
+            <fa-menu-megamenu v-for="(item,key) in menuData" :key="key" :item="item" :item-class="key" :display="display" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-megamenu>
         </div>
-        <fa-menu-burger :data="data" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-burger>
+        <fa-menu-burger :data="menuData" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-burger>
     </div>
 </template>
 
@@ -15,12 +15,16 @@
         name: 'fa-menu',
         data: function() {
             return {
-                data: {}
+                menuData: {}
             };
         },
         props: {
             'feed': {
                 type: String
+            },
+            'data': {
+                type: Object,
+                default: null
             },
             'cache': {
                 type: Boolean,
@@ -39,15 +43,19 @@
         created: function() {
             var self = this;
             
-            var local = this.localGet();
-            
-            if (this.cache && local !== null) {
-                this.data = local;
+            if (this.data) {
+                this.menuData = this.data;
             } else {
-                this.$http.get(this.feed).then(function(response) {
-                    this.data = response.data;
-                    this.localSave(this.data);
-                });
+                var local = this.localGet();
+                
+                if (this.cache && local !== null) {
+                    this.menuData = local;
+                } else {
+                    this.$http.get(this.feed).then(function(response) {
+                        self.menuData = response.data;
+                        self.localSave(self.menuData);
+                    });
+                }
             }
         },
         methods: {

@@ -211,7 +211,8 @@ The multilevel view will list all the links in column 1 and then as you hover ov
 
 | Prop | Description | Type | Default |
 |--|--|--|--|
-| feed | The path to the JSON feed. | String | null |
-| cache | Store the feed results in the browsers sessionStorage. | Boolean | false |
+| feed | The URL to the JSON feed. Use this or data. | String | null |
+| data | The menu data object. Use this or feed. | Object | null |
+| cache | Store the feed results in the browsers sessionStorage. Only applicable if using feed. | Boolean | false |
 | display | Display the menu as `columns` or `multilevel` | String | multilevel |
 | vue-router | Use `router-link` instead of `a` tags | Boolean | false |

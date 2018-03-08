@@ -46,7 +46,7 @@
                 </fa-search>
                 <fa-navigation v-model="navActive" :breakpoint="800">
                     <span slot="icon">ICO</span>
-                    <fa-menu feed="example.json" display="multilevel" v-on:click="onClick"></fa-menu>
+                    <fa-menu :data="test" feed="example.json" display="multilevel" v-on:click="onClick"></fa-menu>
                 </fa-navigation>
             </fa-header>
             <div class="content content--bottom">
@@ -61,7 +61,12 @@
             new Vue({
               el: '#app',
               data: {
-                  navActive: false
+                  navActive: false,
+                  test: {}
+              },
+              created: function() {
+                  
+                  this.test = window.test;
               },
               methods: {
                   onClick: function() {
