@@ -179,7 +179,8 @@ Where the feed is JSON in the following format:
                 }
              ]
           ],
-          "classes": ["custom-class"]
+          "classes": ["custom-class"],
+          "pre": "<p>Custom HTML that will be displayed on the full Mega Menu before the links.</p>",
           "custom": "<p>Custom HTML that will be displayed on the full Mega Menu after the links.</p>"
        },
        "standalone":{

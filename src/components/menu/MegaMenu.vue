@@ -9,6 +9,8 @@
             
             <!-- Multilevel Menu - Displays the children on hover of the parent -->
             <div class="menu__megamenu__dropdown" v-if="display == 'multilevel'">
+                <div v-if="item.pre" class="menu__pre" v-html="item.pre"></div>
+                
                 <ul v-if="item.links" v-for="(list,level) in item.links" class="menu__links" :class="levelClass(level)">
                     <li v-for="link in list" :class="levelClass(level)" v-on:mouseover="menuItemHover(link.id, level)">
                         <fa-menu-link v-if="link.url" :vue-router="vueRouter" :url="link.url" :classes="[{'active': isActive(link.id, level)}, link.classes]" v-on:click="handleClick()">
@@ -25,6 +27,8 @@
             
             <!-- Columns Menu - Supports 1 level only and displays underneath the parent link in columns -->
             <div class="menu__megamenu__columns" v-if="display == 'columns'">
+                <div v-if="item.pre" class="menu__pre" v-html="item.pre"></div>
+                
                 <div v-if="item.links" v-for="(list,level) in item.links" class="menu__links">
                     <div v-for="link in list" :class="levelClass(level)" class="menu__links__parent">
                         <div v-if="link.prefix" class="prefix" v-html="link.prefix"></div>
