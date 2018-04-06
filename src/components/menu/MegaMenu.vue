@@ -13,7 +13,7 @@
                 
                 <ul v-if="item.links" v-for="(list,level) in item.links" class="menu__links" :class="levelClass(level)">
                     <li v-for="link in list" :class="levelClass(level)" v-on:mouseover="menuItemHover(link.id, level)">
-                        <fa-menu-link v-if="link.url" :vue-router="vueRouter" :url="link.url" :classes="[{'active': isActive(link.id, level)}, link.classes]" v-on:click="handleClick()">
+                        <fa-menu-link :vue-router="vueRouter" :url="link.url" :classes="[{'active': isActive(link.id, level)}, link.classes]" v-on:click="handleClick()">
                             <div v-if="link.prefix" class="prefix" v-html="link.prefix"></div>
                             <div v-if="link.img" class="image"><img :src="link.img" :alt="link.name" /></div>
                             <span class="name">{{ link.name }}</span>
@@ -36,7 +36,7 @@
                         <span class="menu__links__heading" :class="item.classes" v-else>{{ link.name }}</span>
                         <ul>
                             <li v-for="child in getChildren(link.id)">
-                                <fa-menu-link v-if="child.url" :vue-router="vueRouter" :url="child.url" :classes="child.classes" v-on:click="handleClick()">
+                                <fa-menu-link :vue-router="vueRouter" :url="child.url" :classes="child.classes" v-on:click="handleClick()">
                                     <div v-if="child.prefix" class="prefix" v-html="child.prefix"></div>
                                     <div v-if="child.img" class="image"><img :src="child.img" :alt="child.name" /></div>
                                     <span class="name">{{ child.name }}</span>

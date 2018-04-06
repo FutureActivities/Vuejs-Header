@@ -1,7 +1,7 @@
 <template>
     <router-link v-if="vueRouter && url" :class="classes" :to="url" v-on:click.native="click"><slot></slot></router-link>
     <a v-else-if="url" :class="classes" :href="url" v-on:click="click"><slot></slot></a>
-    <div v-else :class="classes"><slot></slot></div>
+    <div v-else :class="classes" v-on:click="click"><slot></slot></div>
 </template>
 
 <script>
@@ -24,6 +24,7 @@
             },
             url: {
                 type: String,
+                default: null,
                 required: false
             }
         },
