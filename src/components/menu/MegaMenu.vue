@@ -1,6 +1,6 @@
 <template>
     <div class="menu__megamenu" v-if="canShow(item)" :class="[{'menu__megamenu--parent': item.links || item.custom}, itemClass]" @mouseenter="handleEnter()" @mouseleave="handleLeave()">
-        <fa-menu-link class="menu__megamenu__item" :vue-router="vueRouter" :classes="item.classes" :url="item.url">
+        <fa-menu-link class="menu__megamenu__item" :vue-router="vueRouter" :classes="item.classes" :url="item.url" v-on:click="handleClick()">
             <div v-if="item.override" v-html="item.override"></div>
             <span v-else>{{ item.name }}</span>
         </fa-menu-link>
