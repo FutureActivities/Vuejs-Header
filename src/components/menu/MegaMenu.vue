@@ -62,6 +62,7 @@ export default {
     data: function() {
         return {
             active: false,
+            activeWaiting: false
         };
     },
     props: {
@@ -157,12 +158,16 @@ export default {
            this.active = false;
         },
         handleEnter: function(){
+            this.activeWaiting = true;
             setTimeout(() => {
-                this.active = true;
+                if (this.activeWaiting)
+                    this.active = true;
+                this.activeWaiting = false;
             }, this.hoverDelay);
         },
         handleLeave: function(){
             this.active = false;
+            this.activeWaiting = false;
         }
     },
     components: {
