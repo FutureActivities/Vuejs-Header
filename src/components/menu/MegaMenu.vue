@@ -81,6 +81,11 @@ export default {
             type: Boolean,
             default: false,
             required: false
+        },
+        hoverDelay: {
+            type: Number,
+            default: 0,
+            required: false
         }
     },
     methods: {
@@ -152,7 +157,9 @@ export default {
            this.active = false;
         },
         handleEnter: function(){
-            this.active = true;
+            setTimeout(() => {
+                this.active = true;
+            }, this.hoverDelay);
         },
         handleLeave: function(){
             this.active = false;

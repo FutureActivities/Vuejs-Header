@@ -1,7 +1,7 @@
 <template>
     <div class="menu">
         <div class="menu__bar">
-            <fa-menu-megamenu v-for="(item,key) in menuData" :key="key" :item="item" :item-class="key" :display="display" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-megamenu>
+            <fa-menu-megamenu v-for="(item,key) in menuData" :key="key" :item="item" :item-class="key" :display="display" :vue-router="vueRouter" :hover-delay="hoverDelay" v-on:click="$emit('click')"></fa-menu-megamenu>
         </div>
         <fa-menu-burger :data="menuData" :vue-router="vueRouter" v-on:click="$emit('click')"></fa-menu-burger>
     </div>
@@ -37,6 +37,11 @@
             'vueRouter': {
                 type: Boolean,
                 default: false,
+                required: false
+            },
+            'hoverDelay': {
+                type: Number,
+                default: 0,
                 required: false
             }
         },
