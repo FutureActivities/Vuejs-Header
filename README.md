@@ -40,7 +40,7 @@ This provides a wrapper for everything in the header that will become sticky at 
 
 #### Example Usage
 
-    <fa-header :width="1200" :breakpoint="800" :sticky="-50">
+    <fa-header :breakpoint="800" :sticky="-50">
         <div class="logo">LOGO</div>
         <fa-search :breakpoint="800">
             <form method="post">
