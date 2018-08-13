@@ -68,6 +68,11 @@ export default {
     
     window.addEventListener('load', function() {
       elementHeight = elementChild.clientHeight;
+      
+      // Update the element height after everything has loaded
+      setTimeout(function() {
+        elementHeight = elementChild.clientHeight;
+      }, 300);
     });
   },
 
