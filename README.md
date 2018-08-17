@@ -1,7 +1,6 @@
-# Vue.js Header Component
+# Vue.js Header Components
 
 This component provides typical header layout and functionality for responsive websites.
-The following components were designed to work inside the Header component but can work independently.
 
 ## Demo
 
@@ -131,90 +130,5 @@ This will display as normal on desktop but on mobile will be replaced by a searc
 | icon | Optionally set the icon content. By default a :before element will be applied with a FontAwesome icon, if using this slot you may want to hide that :before pseudo element with CSS. |
 
 ## MegaMenu
-Grabs data about the menu via JSON and builds a multi-level megamenu on desktop and on mobile creates a multi-page navigation view that loads the child links on each click (includes back buttons).
 
-#### Example Usage
-    <fa-megamenu feed="example.json"></fa-megamenu>
-    
-Where the feed is JSON in the following format:
-
-    {
-       "category": {
-          "name":"Category",
-          "source": {
-              "1": [
-                {
-                  "id": 3,
-                  "name": "Child Link",
-                  "url": "#"
-                },
-                {
-                  "id": 4,
-                  "name": "Another Child Link",
-                  "url": "#"
-                }
-              ],
-              "4": [
-                {
-                  "id": 5,
-                  "name": "Next level child",
-                  "url": "#"
-                }
-              ]
-          },
-          "links":[
-             [
-                {
-                  "id":1,
-                  "name":"Parent",
-                  "url":"#"
-                },
-                {
-                  "id":2,
-                  "name":"Other",
-                  "url":"#",
-                  "img":"url",
-                  "prefix":"<strong>custom html</strong>",
-                  "suffix":"<strong>custom html</strong>"
-                }
-             ]
-          ],
-          "classes": ["custom-class"],
-          "pre": "<p>Custom HTML that will be displayed on the full Mega Menu before the links.</p>",
-          "custom": "<p>Custom HTML that will be displayed on the full Mega Menu after the links.</p>"
-       },
-       "standalone":{
-          "name":"Standalone Link",
-          "url":"#",
-          "bar": true,
-          "burger" true
-       },
-       "mylink": {
-           "name":"Another Link",
-           "override":"<strong>LINK</strong>"
-       }
-    }
-    
-`links` is the data that is initially displayed in the megamenu dropdown. This is an array where each item will create a new UL element in the mega menu.
-
-`source` is for the child menu data. This should be organised by the parent ID. When you hover or click on a menu item it will attempt to see if that item has any children by checking for the ID in source.
-Each item can also be hidden from the horizontal mega menu or the burger menu, so you can include links that are only visible on the burger menu, for example.
-
-`override` allows you to use your own HTML in the horizontal bar menu item.
-
-`custom` allows you to use your own HTML inside the horizontal bar mega menu.
-
-When displaying the menu you can also set how the menu should display, currently this component provides 2 options: `columns` and `multilevel` with multilevel being the default.
-The columns view will display each link as a heading of a column and then render 1 level of children underneath it.
-The multilevel view will list all the links in column 1 and then as you hover over a link the children are displayed in the next column.
-
-#### Options
-
-| Prop | Description | Type | Default |
-|--|--|--|--|
-| feed | The URL to the JSON feed. Use this or data. | String | null |
-| data | The menu data object. Use this or feed. | Object | null |
-| cache | Store the feed results in the browsers sessionStorage. Only applicable if using feed. | Boolean | false |
-| display | Display the menu as `columns` or `multilevel` | String | multilevel |
-| vue-router | Use `router-link` instead of `a` tags | Boolean | false |
-| hover-delay | Delay the opening of the menu on hover. Time in milliseconds. | Number | 0 |
+Moved to: https://github.com/FutureActivities/Vuejs-Menu
